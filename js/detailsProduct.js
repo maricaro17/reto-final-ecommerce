@@ -1,8 +1,7 @@
 import { addToCar } from "./addToCar.js";
 import { cargarCarrito } from "./getCarrito.js";
 
-
-const urlBase = "http://localhost:2000";
+const urlBase = "https://mcshop-json-server.herokuapp.com";
 const productId = JSON.parse(localStorage.getItem("productId"));
 const category = localStorage.getItem("category");
 const containerDetails = document.getElementById("container");
@@ -10,7 +9,7 @@ const getCategoriesById = async (productId, category) => {
   const response = await fetch(`${urlBase}/${category}/${productId}`);
   return response.json();
 };
-
+console.log(productId);
 getCategoriesById(productId, category).then((data) => {
   const priceFormat = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -25,7 +24,6 @@ getCategoriesById(productId, category).then((data) => {
          <div class="my-6 mx-5 mt-5">
          <h2 class="modal-title">${data.name}</h2>
              <h3>Precio: ${priceFormat}</h3>
-            
              <p> Descripcion: ${data.description}</p>
              <h5> Talla:${data.talla}</h5>
              <h5> Color: ${data.color}</h5>
@@ -33,16 +31,18 @@ getCategoriesById(productId, category).then((data) => {
              <input id="cantidad" value="1" type="number" min="1"> <br>
              
             <button id="add" class='btn mt-5 btn-outline-primary carrito'>Agregar al carrito</button>
-             
+            <button id="irAlCarrito" class='btn mt-5 btn-outline-primary carrito'>Ir al carrito</button> 
          </div>
      </div>
   </div>
     `;
   const cantidad = document.getElementById("cantidad");
   const add = document.getElementById("add");
-
+  const irAlCarrito = document.getElementById("irAlCarrito");
+  irAlCarrito.addEventListener("click", () => {
+    window.location.href = "../pages/carrito.html";
+  });
   add.addEventListener("click", () => {
-      console.log("hola");
     addToCar({
       ...data,
       category,
@@ -50,5 +50,4 @@ getCategoriesById(productId, category).then((data) => {
     });
     cargarCarrito();
   });
-  
 });

@@ -13,7 +13,7 @@
 
     <script src="https://kit.fontawesome.com/b2e2d6324e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/index.css">
-    <title>MC Shop</title>
+    <title>Formulario de Pago</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small text-mcshop">
                         <li>
-                            <a href="../index.html" class="nav-link menu">
+                            <a href="#" class="nav-link menu">
                                 Home
                             </a>
                         </li>
@@ -35,7 +35,6 @@
                         <li>
                             <a href="./carrito.html" class="fa-solid fa-cart-shopping icon"></a>
                             <span id="count" class="badge bg-dark rounded-pill">0</span>
-
                         </li>
 
                     </ul>
@@ -43,57 +42,45 @@
             </div>
         </div>
     </header>
-    <main>
 
-        <div class="col-md-5 col-lg-10 m-auto order-md-last">
-            <div class="bg-mcshop p-2">
-                <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-white">Carrito</span>
-                </h4>
-                <div id="item-list-car" class="list-group mb-3">
-                    <table class="table table-striped bg-light">
-                        <thead>
-                            <tr>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Sub Total</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="product-list">
-
-                        </tbody>
-                        <tfoot>
-                            <td>
-                                <button id="clear" class=" btn btn-danger text-white">Limpiar Carrito</button>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <div class="float-right">
-                                    <div class="d-flex fw-bold">
-                                        <p>Total:</p>
-                                        <p id="total"> COP 0.00</p>
-                                    </div>
-
-                                    <button id="pay" class=" btn bg-mcshop text-white btn-lg w-100">Pagar</button>
-
-                                </div>
-                            </td>
-
-                        </tfoot>
-                    </table>
+    <h4 class="mb-3">Informacion de de Pago</h4>
+    <form class="card p-2">
+        <div id="formPay" class="my-3">
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <label for="cc-name" class="form-label">Nombre de la tarjeta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                    <small class="text-muted"></small>
+                    <div class="invalid-feedback">
+                        Ingrese nombre de la tarjeta
+                    </div>
                 </div>
 
+                <div class="col-md-6">
+                    <label for="cc-number" class="form-label">Numero de tarjeta</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                    <div class="invalid-feedback">
+                        Ingrese Numero de la tarjeta
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="cc-expiration" class="form-label">Fecha de Expiracion</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                    <div class="invalid-feedback">
+                        Ingrese fecha de Expiracion
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="cc-cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                    <div class="invalid-feedback">
+                        Ingrese CVV
+                    </div>
+                </div>
             </div>
-        </div>
-    </main>
+    </form>
     <footer class="bg-light pt-4">
         <div class="container">
             <div class="row">
@@ -129,10 +116,8 @@
             </div>
         </div>
     </footer>
-    <script src="../js/getCarrito.js" type="module"></script>
-
+    <script src="../js/form.js" type="module"></script>
     <script src="../js/carrito.js" type="module"></script>
-
 </body>
 
 </html>

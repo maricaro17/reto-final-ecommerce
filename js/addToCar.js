@@ -1,5 +1,5 @@
 import { cargarCarrito } from "./getCarrito.js";
-cargarCarrito();
+
 const car = localStorage.getItem("car")
   ? JSON.parse(localStorage.getItem("car"))
   : [];
